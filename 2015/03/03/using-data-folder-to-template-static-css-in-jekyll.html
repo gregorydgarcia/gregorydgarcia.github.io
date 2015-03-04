@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Using _data folder to template static CSS in Jekyll</title>
+  <meta name="description" content="Sass variables are a great way to seperate user defined styles when writing tempaltes for Jekyll. But what happens when you are working with a code base that...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="gregorydgarcia.github.com/2015/03/03/using-data-folder-to-template-static-css-in-jekyll.html">
+  <link rel="alternate" type="application/rss+xml" title="Greg Garcia" href="gregorydgarcia.github.com/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+
+
+    <img src="http://localhost:4000/assets/img/greg_garcia_cir.png" alt="Pictures of Greg" />
+
+<a class="site-title" href="/">Greg Garcia</a>
+<div class="site-description"><em> I like the Web <br /> and I like Maps</em></div>
+
+
+<nav class="site-nav">
+  <a href="/about-me"><h2>About Me</h2></a>
+</nav>
+
+    <div class="popular-posts">
+	<h3>Popular Posts</h3>
+
+	<a class="page-link" href="/2015/03/03/using-data-folder-to-template-static-css-in-jekyll.html">100 Angry Ducks</a><br />
+</div>
+
+
+
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Using _data folder to template static CSS in Jekyll</h1>
+  </header>
+
+  <article class="post-content">
+    <p>Sass variables are a great way to seperate user defined styles when writing tempaltes for Jekyll. But what happens when you are working with a code base that does not use Sass? I recently ran into this issue when tweaking a pure Css template. The developer had come up with a good solution of using Yaml variables in the <code>_config.yml</code> file.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">color</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">primary</span><span class="p-Indicator">:</span> <span class="c1">#65457e</span>
+  <span class="l-Scalar-Plain">secondary</span><span class="p-Indicator">:</span> <span class="c1">#13a7c7</span>
+  <span class="l-Scalar-Plain">secondary-dark</span><span class="p-Indicator">:</span> <span class="c1">#123677</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.purple-section</span><span class="p">{</span>
+	<span class="k">background-color</span><span class="o">:</span> 
+<span class="p">}</span>
+<span class="nc">.blue-section</span><span class="p">{</span>
+	<span class="k">background-color</span><span class="o">:</span> 
+<span class="p">}</span></code></pre></div>
+
+<p>This works great. The only issue is that to test out different styles in the <code>_config.yml</code> the server needs to be restarted. While this isn’t a game ender, a major selling point of Jekyll is being able to tweak a site’s styling as the code renders in real time. </p>
+
+<p>Is there a way we could take a similiar approach outside the <code>_config.yml</code> file? Jekyll has a great solution already baked into the program: the <code>_data</code> file. Taken from the Jekyll <a href="'http://jekyllrb.com/docs/datafiles/'">documents</a></p>
+
+<blockquote>
+  <p>_data folder is where you can store additional data for Jekyll to use when generating your site … 
+This powerful feature allows you to avoid repetition in your templates and to set site specific options without changing _config.yml.</p>
+</blockquote>
+
+<p>So now it’s just a matter of moving your style variables to their new home <code>_data/template.yml</code> and updating the css doc.</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.purple-section</span><span class="p">{</span>
+	<span class="k">background-color</span><span class="o">:</span> 
+<span class="p">}</span>
+<span class="nc">.blue-section</span><span class="p">{</span>
+	<span class="k">background-color</span><span class="o">:</span> 
+<span class="p">}</span></code></pre></div>
+
+<p>This may look verbose but when designing a template the majority of the code editing should take place in the <code>template.yml</code> folder and not the css file. I used this technique to template out my colors, fonts, base padding, and images.</p>
+
+
+    <p class="post-meta">Mar 3, 2015</p>
+
+  </article>
+
+
+</div>
+
+      </div>
+    </div>
+
+
+  </body>
+
+</html>

@@ -72,11 +72,11 @@
   <span class="l-Scalar-Plain">secondary-dark</span><span class="p-Indicator">:</span> <span class="c1">#123677</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.purple-section</span><span class="p">{</span>
-	<span class="k">background-color</span><span class="o">:</span> 
-<span class="p">}</span>
+	<span class="k">background-color</span><span class="o">:</span> <span class="err">{{</span> <span class="k">page</span><span class="o">.</span><span class="k">color</span><span class="o">.</span><span class="n">primary</span> <span class="p">}</span><span class="err">}</span>
+<span class="err">}</span>
 <span class="nc">.blue-section</span><span class="p">{</span>
-	<span class="k">background-color</span><span class="o">:</span> 
-<span class="p">}</span></code></pre></div>
+	<span class="k">background-color</span><span class="o">:</span> <span class="err">{{</span> <span class="k">page</span><span class="o">.</span><span class="k">color</span><span class="o">.</span><span class="n">secondary</span> <span class="p">}</span><span class="err">}</span>
+<span class="err">}</span></code></pre></div>
 
 <p>This works great. The only issue is that to test out different styles in the <code>_config.yml</code> the server needs to be restarted. While this isn’t a game ender, a major selling point of Jekyll is being able to tweak a site’s styling as the code renders in real time. </p>
 
@@ -90,11 +90,11 @@ This powerful feature allows you to avoid repetition in your templates and to se
 <p>So now it’s just a matter of moving your style variables to their new home <code>_data/template.yml</code> and updating the css doc.</p>
 
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.purple-section</span><span class="p">{</span>
-	<span class="k">background-color</span><span class="o">:</span> 
-<span class="p">}</span>
+	<span class="k">background-color</span><span class="o">:</span> <span class="err">{{</span> <span class="k">page</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="k">color</span><span class="o">.</span><span class="n">primary</span> <span class="p">}</span><span class="err">}</span>
+<span class="err">}</span>
 <span class="nc">.blue-section</span><span class="p">{</span>
-	<span class="k">background-color</span><span class="o">:</span> 
-<span class="p">}</span></code></pre></div>
+	<span class="k">background-color</span><span class="o">:</span> <span class="err">{{</span> <span class="k">page</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="k">color</span><span class="o">.</span><span class="n">secondary</span> <span class="p">}</span><span class="err">}</span>
+<span class="err">}</span></code></pre></div>
 
 <p>This may look verbose but when designing a template the majority of the code editing should take place in the <code>template.yml</code> folder and not the css file. I used this technique to template out my colors, fonts, base padding, and images.</p>
 

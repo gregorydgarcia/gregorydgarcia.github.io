@@ -1,1 +1,0 @@
-# gregorydgarcia.github.io

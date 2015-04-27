@@ -1,2 +1,5 @@
 _site
 .sass-cache
+style.sass
+html.jade
+config.codekit

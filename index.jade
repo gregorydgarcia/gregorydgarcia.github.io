@@ -1,0 +1,122 @@
+doctype html
+html(class="no-js" lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="ie=edge")
+        title Gregory Garcia
+        meta(name="description" content="")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        link(rel="apple-touch-icon" href="apple-touch-icon.png")
+
+        link(rel="stylesheet" href="css/normalize.css")
+        link(rel="stylesheet" href="css/style.css")
+        
+        script(src="js/vendor/modernizr-2.8.3.min.js")
+    
+    body
+        //[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        //[endif]
+
+
+        header 
+            h1 Greg Garcia
+            h4 Front-End Web Developer
+
+            nav
+                ul  
+                    li 
+                        a(href="#projects") Projects
+                    li 
+                        a(href="#links") Blog
+                    li 
+                        a(href="#contact") Contact
+        
+            section(id="about")
+                .bio
+                    h2 Bio
+                    p Based out of Austin, Texas I specialize in javascript driven websites. This includes data visualization, web cartgography, and web applications. 
+                    p My background is in marketing and GIS so I am constantly thinking on how we can use the web to solve business problems spatially.
+                .skills
+                    h2 Skills
+                    p I spend most of my time in Javascript and SASS. I have experience scripting with python, mainly for data sanitization and data scrapping. Libraries I use regularly are Leaflet, JQuery, Kartography, and I am currently experiementing with Angular.
+                    p Most importantly I am empathetic to the needs of clients and the importance of providing timely and stable solutions. I have experience working in an agile system; individually and with teams.  
+                .cred
+                    h2 Cred
+                    p I am a graduate of University of Texas's School of Advertising. While at UT I was a productions intern for an advertising firm.  
+                    p Recently I have worked with a Crisis PR firm handling their digital response - website, social media, emails - for clients ranging from law firms to city governments.
+
+
+        section(id="projects")
+                h2 Projects
+                .project
+                    a(href="#")
+                        h3 RiverBatJS
+                        p ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in faucibus urna, at ultricies ex.
+                        img(src="img/riverbat.png")
+
+                .project
+                    h3 Coming Soon
+                    p Coming Soon
+                    img(src="img/coming.png")
+                        
+                .project
+                    h3 Coming Soon
+                    p Coming Soon
+                    img(src="img/coming.png")
+
+                .project
+                    h3 Coming Soon
+                    p Coming Soon
+                    img(src="img/coming.png")
+
+        section(id="links")
+            .blog
+                h2 Blog
+                ul
+                    li 
+                        a(href="blog/#") Coming Soon
+                    li 
+                        a(href="blog/#")
+                    li 
+                        a(href="blog/#")
+                    li 
+                        a(href="blog/#")
+
+            .links
+                h2 Links
+                ul
+                    li 
+                        a(href="blog/#") Coming Soon
+                    li 
+                        a(href="blog/#")
+                    li 
+                        a(href="blog/#")
+                    li 
+                        a(href="blog/#")
+
+
+
+        section(id="contact")
+            form(class="contact-form")
+              .input-group
+                input(type="text")
+                label Full Name
+                
+              .input-group
+                input(type="email")
+                label Email Address
+                
+              input(type="submit")
+
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+        script window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+        script(src="js/site.js")
+        script.
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');

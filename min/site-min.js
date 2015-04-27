@@ -1,0 +1,1 @@
+$(function(){$(".contact-form .input-group input").focusout(function(){var a=$(this).val();""===a?$(this).removeClass("has-value"):$(this).addClass("has-value")})});

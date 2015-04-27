@@ -128,36 +128,24 @@ nav {
 
 @media only screen and (max-width: 720px) {
   #projects, #links, #contact {
+    width: 100%;
     transition-duration: 0.5s;
     height: inherit;
     padding-top: 60px; }
 
-  nav ul {
-    float: none;
-    text-align: center; }
+  nav {
+    -webkit-box-shadow: 2px 14px 33px -2px #4a90e2;
+    -moz-box-shadow: 2px 14px 33px -2px #4a90e2;
+    box-shadow: 2px 14px 33px -2px #4a90e2; }
+    nav ul {
+      float: none;
+      text-align: center; }
 
   #about .bio, #about .skills, #about .cred {
-    float: left;
-    display: block;
-    margin-right: 2.3576515979%;
     width: 100%; }
-    #about .bio:last-child, #about .skills:last-child, #about .cred:last-child {
-      margin-right: 0; }
 
-  #projects .project1 {
-    float: left;
-    display: block;
-    margin-right: 2.3576515979%;
+  .project {
     width: 100%; }
-    #projects .project1:last-child {
-      margin-right: 0; }
-  #projects .project2 {
-    float: left;
-    display: block;
-    margin-right: 2.3576515979%;
-    width: 100%; }
-    #projects .project2:last-child {
-      margin-right: 0; }
 
   #links {
     clear: both; }

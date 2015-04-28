@@ -134,9 +134,9 @@ nav {
     padding-top: 60px; }
 
   nav {
-    -webkit-box-shadow: 0px;
-    -moz-box-shadow: 0px;
-    box-shadow: 0px; }
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
     nav ul {
       float: none;
       text-align: center; }
@@ -148,15 +148,10 @@ nav {
 
   .project {
     width: 100%; }
-    .project img {
+    .project p, .project img, .project h3 {
       width: 100%; }
 
   #links {
-    clear: both; }
-    #links .blog {
-      float: left;
-      display: block;
-      margin-right: 2.3576515979%;
-      width: 100%; }
-      #links .blog:last-child {
-        margin-right: 0; } }
+    width: 100%; }
+    #links .blog, #links .links {
+      width: 100%; } }

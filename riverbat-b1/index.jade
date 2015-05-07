@@ -1,0 +1,455 @@
+doctype html
+head
+  meta(charset="utf8")
+  link(rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css")
+  link(href="css/Leaflet.Illustrate.css" rel="stylesheet")
+  link(href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css' rel='stylesheet')
+  link(href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet')
+  link(rel="stylesheet" href="css/Control.Geocoder.css")
+  link(rel="stylesheet" href="css/bat.css")
+
+  //ILLUSTRATE
+  script(src="js/Leaflet.Illustrate.js")
+
+
+body
+  #map
+
+  .tools #[span.title Tools]
+    ul 
+      li aggregate
+      li measure
+      li transform
+      li misc
+      li helper 
+      li data
+      li interpolate
+      li join
+      li classify
+    .tool-area
+      .aggregate.hidden
+        .options
+          input(type="button" name="aggregate" value="aggregate")
+          input(type="button" name="average" value="average").working 
+          input(type="button" name="count" value="count").working 
+          input(type="button" name="deviation" value="deviation").working 
+          input(type="button" name="max" value="max").working 
+          input(type="button" name="median" value="median").working 
+          input(type="button" name="min" value="min").working 
+          input(type="button" name="sum" value="sum").working 
+          input(type="button" name="variance" value="variance").working 
+        .summary
+          #aggregate.hidden
+            h3 Aggregate
+            p Calculates a series of aggregations for a set of points within a set of polygons. Sum, average, count, min, max, and deviation are supported.
+            hr
+            form(id="aggregate-form")
+              label(for="aggregate-data1"): #[b Polygons]
+                input(type="file" id="aggregate-data1" name="Files[]")  
+              br
+              label(for="aggregate-data2"): #[b Points]
+                input(type="file" id="aggregate-data2" name="Files[]")  
+              br
+              input(type="button" value="Submit" id="aggregate-submit")         
+
+          #average.hidden
+            h3 Average
+            p Calculates the average value of a field for a set of points within a set of polygons.
+          #count.hidden
+            h3 Count
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #deviation.hidden
+            h3 Deviation 
+          #max.hidden
+            h3 Max 
+          #median.hidden 
+            h3 Median 
+          #min.hidden
+            h3 Min 
+          #sum.hidden 
+            h3 Sum 
+          #variance.hidden 
+            h3 Variance 
+      .measure.hidden
+        .options
+          input(type="button" name="along" value="along") 
+          input(type="button" name="area" value="area") 
+          input(type="button" name="bbox-polygon" value="bbox-polygon") 
+          input(type="button" name="bearing" value="bearing").working 
+          input(type="button" name="center" value="center") 
+          input(type="button" name="centroid" value="centroid")
+          input(type="button" name="destination" value="destination").working
+          input(type="button" name="distance" value="distance").working
+          input(type="button" name="envelope" value="envelope").working
+          input(type="button" name="extent" value="extent").working
+          input(type="button" name="line-distance" value="line-distance").working
+          input(type="button" name="midpoint" value="midpoint").working
+          input(type="button" name="point-on-surface" value="point-on-surface").working
+          input(type="button" name="size" value="size").working
+          input(type="button" name="square" value="square").working
+        .summary
+          #along.hidden
+            h3 Along
+            p Takes a one or more features and returns their area in square units.
+            hr
+            form(id="along-form")
+              label(for="along-distance"): #[b Distance]
+                input(id="along-distance" type="number" name="along-distance" placeholder="ex. 10")
+              br
+              label(for="along-unit"): #[b Units]
+                input(type="radio" name="along-unit" value="degrees")
+                span Degrees
+                input(type="radio" name="along-unit" value="radians")
+                span Radians
+                input(type="radio" name="along-unit" value="miles")
+                span Miles
+                input(type="radio" name="along-unit" value="kilometers")
+                span Kilometers
+              br
+              label(for="along-data"): #[b Layer]
+                input(type="file" id="along-data" name="Files[]")
+              br
+              label(for="along-name"): #[b Name]
+                input(type="text" name="along-name" placeholder="Choose name for along")
+              br
+              input(type="button" value="along" id="along-submit").button-tool
+
+          #area.hidden
+            h3 Area
+            p Takes a one or more features and returns their area in square meters.
+            hr
+            input(type="file" id="area-data" name="files[]")
+            br
+            input(type="button" id="area-submit" name="submit" value="Submit")
+            br
+            .result#area-result
+          
+          #bbox-polygon.hidden
+            h3 bbox-polygon
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+            hr
+            form(id="bbox-form")
+              label(for="bbox-xLow"): #[b xLow]
+                input(id="bbox-xLow" type="number" name="bbox-xLow" placeholder="ex. 0")
+              label(for="bbox-yLow"): #[b yLow]
+                input(id="bbox-yLow" type="number" name="bbox-yLow" placeholder="ex. 1")
+              label(for="bbox-xHigh"): #[b xHigh]
+                input(id="bbox-xHigh" type="number" name="bbox-xHigh" placeholder="ex. 10")
+              label(for="bbox-yHigh"): #[b yHigh]
+                input(id="bbox-yHigh" type="number" name="bbox-yHigh" placeholder="ex. 0")
+              br
+              label(for="bbox-name"): #[b Name]
+                input(type="text" id="bbox-name" name="bbox-name")
+              input(type="button" id="bbox-submit" name="submit" value="Submit")
+
+
+          #bearing.hidden
+            h3 Bearing 
+          #center.hidden
+            h3 Center 
+            p Takes a FeatureCollection and returns the absolute center point of all features.
+            hr
+            input(type="text" id="center-name" placeholder="Center Name")
+            br
+            input(type="file" id="center-data" name="files[]")
+            br
+            input(type="button" id="center-submit" name="submit" value="Submit")
+          #centroid.hidden 
+            h3 Centroid
+            p Takes a Polygon and calculates the centroid using the arithmetic mean of all vertices. This lessens the effect of small islands and artifacts when calculating the centroid of a set of polygons.
+            hr
+            input(type="text" id="centroid-name" placeholder="Centroid Name")
+            br
+            input(type="file" id="centroid-data" name="files[]")
+            br
+            input(type="button" id="centroid-submit" name="submit" value="Submit")
+
+
+          #destination.hidden
+            h3 Destination 
+          #distance.hidden 
+            h3 Distance 
+          #envelope.hidden 
+            h3 Envelope
+          #extent.hidden 
+            h3 Extent 
+          #line-distance.hidden 
+            h3 Line-Distance 
+          #midpoint.hidden 
+            h3 Midpoint 
+          #point-on-surface.hidden 
+            h3 Point-On-Surface 
+          #size.hidden 
+            h3 Size 
+          #square.hidden 
+            h3 Square 
+
+      .transform.hidden
+        .options
+          input(type="button" name="bezier" value="bezier") 
+          input(type="button" name="buffer" value="buffer") 
+          input(type="button" name="concave" value="concave") 
+          input(type="button" name="convex" value="convex").working 
+          input(type="button" name="erase" value="erase").working 
+          input(type="button" name="intersect" value="intersect").working 
+          input(type="button" name="merge" value="merge").working 
+          input(type="button" name="simplify" value="simplify").working 
+          input(type="button" name="union" value="union").working 
+
+        .summary
+          #bezier.hidden
+            h3 Bezier
+            p Takes a line and returns a point at a specified distance along the line.
+            hr
+            form(id="bezier-form")
+              label(for="bezier-res"): #[b Resolution]
+                input(type="number" name="bezier-res" placeholder="ex. 10000")
+              br
+              label(for="bezier-sharpness"): #[b Sharpness]
+                input(type="number" name="buffer-length" placeholder="ex. 0.85")
+              br
+              label(for="bezier-data"): #[b Line]
+                input(type="file" id="bezier-data" name="Files[]")
+              br
+              label(for="bezier-name"): #[b Name]
+                input(type="text" name="bezier-name" placeholder="Choose name for bezier")
+              br
+              input(type="button" value="Bezier" id="bezier-submit").button-tool
+
+          #buffer.hidden
+            h3 Buffer
+            p Takes a one or more features and returns their area in square units.
+            hr
+            form(id="buffer-form")
+              label(for="buffer-length"): #[b Length]
+                input(id="buffer-length" type="number" name="buffer-length" placeholder="ex. 100")
+              br
+              label(for="buffer-unit"): #[b Units]
+                input(type="radio" name="buffer-unit" value="miles")
+                span Miles
+                input(type="radio" name="buffer-unit" value="feet")
+                span Feet
+                input(type="radio" name="buffer-unit" value="kilometers")
+                span Kilometers
+                input(type="radio" name="buffer-unit" value="meters")
+                span Meters
+                input(type="radio" name="buffer-unit" value="degrees")
+                span Degrees
+              br
+              label(for="buffer-data"): #[b Layer]
+                input(type="file" id="buffer-data" name="Files[]")
+              br
+              label(for="buffer-name"): #[b Name]
+                input(type="text" name="buffer-name" placeholder="Choose name for buffer")
+              br
+              input(type="button" value="Buffer" id="buffer-submit").button-tool
+
+          #concave.hidden
+            h3 Concave
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+            hr
+            form(id="concave-form")
+              label(for="concave-maxEdge"): #[b Max Edge]
+                input(id="concave-maxEdge" type="number" name="concave-maxEdge" placeholder="ex. 0.5")
+              br
+              label(for="concave-unit"): #[b Units]
+                input(type="radio" name="concave-unit" value="miles")
+                span Miles
+                input(type="radio" name="concave-unit" value="kilometers")
+                span Kilometers
+              br  
+              label(for="concave-data"): #[b Layer]
+                input(type="file" id="concave-data" name="Files[]")
+              br
+              label(for="concave-name"): #[b Name]
+                input(type="text" name="concave-name" id="concave-name" placeholder="Choose name for concave")
+              br
+              input(type="button" value="Concave" id="concave-submit").button-tool
+
+          #convex.hidden
+            h3 Convex 
+          #erase.hidden
+            h3 Erase 
+          #intersect.hidden 
+            h3 Intersect 
+          #merge.hidden
+            h3 Merge 
+          #simplify.hidden 
+            h3 Simplify 
+          #union.hidden 
+            h3 Union
+          
+      .misc.hidden
+        .options
+          input(type="button" name="combine" value="combine").working 
+          input(type="button" name="explode" value="explode").working 
+          input(type="button" name="flip" value="flip").working 
+          input(type="button" name="kinks" value="kinks").working 
+          input(type="button" name="line-slice" value="line-slice").working 
+          input(type="button" name="point-on-line" value="point-on-line").working 
+          
+        .summary
+          #combine.hidden
+            h3 Along
+            p Takes a line and returns a point at a specified distance along the line.
+          #explode.hidden
+            h3 Explode
+            p Takes a one or more features and returns their area in square meters.
+          #flip.hidden
+            h3 Flip
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #kinks.hidden
+            h3 Kinks 
+          #line-slice.hidden
+            h3 Line-Slice 
+          #point-on-line.hidden 
+            h3 Point-On-Line 
+         
+      .helper.hidden
+        .options
+          input(type="button" name="featurecollection" value="featurecollection").working 
+          input(type="button" name="linestring" value="linestring").working 
+          input(type="button" name="point" value="point").working 
+          input(type="button" name="polygon" value="polygon").working 
+         
+        .summary
+          #featurecollection.hidden
+            h3 Feature Collection
+            p Takes a line and returns a point at a specified distance along the line.
+          #linestring.hidden
+            h3 Linestring
+            p Takes a one or more features and returns their area in square meters.
+          #point.hidden
+            h3 Point
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #polygon.hidden
+            h3 Polygon 
+
+      .data.hidden
+        .options
+          input(type="button" name="load" value="load") 
+          input(type="button" name="save" value="save")
+          input(type="button" name="filter" value="filter").working 
+          input(type="button" name="random" value="random").working 
+          input(type="button" name="remove" value="remove").working 
+          input(type="button" name="sample" value="sample").working 
+         
+        .summary
+          #load.hidden
+            h3 Load
+            p Loads geojson data to map.
+            hr
+            form
+              input(type="text" id="load-name" placeholder="Layer Name")
+              br
+              input(type="file" id="load-data" name="files[]")
+              br
+              input(type="button" id="load-submit" name="submit" value="Submit")
+
+          #save.hidden
+            h3 Save
+            p Save data generated in Riverbat 
+            hr 
+            form(id="save-form")
+              select(id="save-list")
+              br
+              input(type="button" id="save-input" value="save")
+
+
+          #filter.hidden
+            h3 Filter
+            p Takes a line and returns a point at a specified distance along the line.
+          #random.hidden
+            h3 Random
+            p Takes a one or more features and returns their area in square meters.
+          #remove.hidden
+            h3 Remove
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #sample.hidden
+            h3 Sample 
+
+      .interpolate.hidden
+        .options
+          input(type="button" name="hex-grid" value="hex-grid").working 
+          input(type="button" name="isolines" value="isolines").working 
+          input(type="button" name="planepoint" value="planepoint").working 
+          input(type="button" name="point-grid" value="point-grid").working 
+          input(type="button" name="square-grid" value="square-grid").working 
+          input(type="button" name="tin" value="tin").working
+          input(type="button" name="triangle-grid" value="triangle-grid").working
+          
+        .summary
+          #hex-grid.hidden
+            h3 Hex Grid
+            p Takes a line and returns a point at a specified distance along the line.
+          #isolines.hidden
+            h3 Isolines
+            p Takes a one or more features and returns their area in square meters.
+          #planepoint.hidden
+            h3 Planepoint
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #point-grid.hidden
+            h3 Point Grid 
+          #square-grid.hidden
+            h3 Square Grid 
+          #tin.hidden 
+            h3 Tin 
+          #triangle-grid.hidden
+            h3 Triangle Grid 
+         
+
+      .join.hidden
+        .options
+          input(type="button" name="inside" value="inside").working 
+          input(type="button" name="tag" value="tag").working
+          input(type="button" name="within" value="within").working
+         
+        .summary
+          #inside.hidden
+            h3 Inside
+            p Takes a line and returns a point at a specified distance along the line.
+          #tag.hidden
+            h3 Tag
+            p Takes a one or more features and returns their area in square meters.
+          #within.hidden
+            h3 Within
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+         
+
+      .classify.hidden
+        .options
+          input(type="button" name="jenks" value="jenks").working 
+          input(type="button" name="nearest" value="nearest").working 
+          input(type="button" name="quantile" value="quantile").working 
+          input(type="button" name="reclass" value="reclass").working 
+          
+        .summary
+          #jenks.hidden
+            h3 Jenks
+            p Takes a line and returns a point at a specified distance along the line.
+          #nearest.hidden
+            h3 Nearest
+            p Takes a one or more features and returns their area in square meters.
+          #quantile.hidden
+            h3 Quantile
+            p Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.
+          #reclass.hidden
+            h3 Reclass 
+         
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(src="https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js")   
+    //TURF
+    script(src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js")
+    //FULLSCREEN
+    script(src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js')    
+    //DRAW 
+    script(src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js')
+    //GEOCODER 
+    script(src="js/Control.Geocoder.js")
+   
+    //RIVERBAT
+    script(src="bat.js") 
+
+
+      

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf8">
+  <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css">
+  <link href="css/Leaflet.Illustrate.css" rel="stylesheet">
+  <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css" rel="stylesheet">
+  <link href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/Control.Geocoder.css">
+  <link rel="stylesheet" href="css/bat.css">
+  <!--ILLUSTRATE-->
+  <script src="js/Leaflet.Illustrate.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="tools"><span class="title">Tools</span>
+    <ul> 
+      <li>aggregate</li>
+      <li>measure</li>
+      <li>transform</li>
+      <li>misc</li>
+      <li>helper </li>
+      <li>data</li>
+      <li>interpolate</li>
+      <li>join</li>
+      <li>classify</li>
+    </ul>
+    <div class="tool-area">
+      <div class="aggregate hidden">
+        <div class="options">
+          <input type="button" name="aggregate" value="aggregate">
+          <input type="button" name="average" value="average" class="working">
+          <input type="button" name="count" value="count" class="working">
+          <input type="button" name="deviation" value="deviation" class="working">
+          <input type="button" name="max" value="max" class="working">
+          <input type="button" name="median" value="median" class="working">
+          <input type="button" name="min" value="min" class="working">
+          <input type="button" name="sum" value="sum" class="working">
+          <input type="button" name="variance" value="variance" class="working">
+        </div>
+        <div class="summary">
+          <div id="aggregate" class="hidden">
+            <h3>Aggregate</h3>
+            <p>Calculates a series of aggregations for a set of points within a set of polygons. Sum, average, count, min, max, and deviation are supported.</p>
+            <hr>
+            <form id="aggregate-form">
+              <label for="aggregate-data1"><b>Polygons</b>
+                <input type="file" id="aggregate-data1" name="Files[]">
+              </label><br>
+              <label for="aggregate-data2"><b>Points</b>
+                <input type="file" id="aggregate-data2" name="Files[]">
+              </label><br>
+              <input type="button" value="Submit" id="aggregate-submit">
+            </form>
+          </div>
+          <div id="average" class="hidden">
+            <h3>Average</h3>
+            <p>Calculates the average value of a field for a set of points within a set of polygons.</p>
+          </div>
+          <div id="count" class="hidden">
+            <h3>Count</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="deviation" class="hidden">
+            <h3>Deviation </h3>
+          </div>
+          <div id="max" class="hidden">
+            <h3>Max </h3>
+          </div>
+          <div id="median" class="hidden"> 
+            <h3>Median </h3>
+          </div>
+          <div id="min" class="hidden">
+            <h3>Min </h3>
+          </div>
+          <div id="sum" class="hidden"> 
+            <h3>Sum </h3>
+          </div>
+          <div id="variance" class="hidden"> 
+            <h3>Variance </h3>
+          </div>
+        </div>
+      </div>
+      <div class="measure hidden">
+        <div class="options">
+          <input type="button" name="along" value="along">
+          <input type="button" name="area" value="area">
+          <input type="button" name="bbox-polygon" value="bbox-polygon">
+          <input type="button" name="bearing" value="bearing" class="working">
+          <input type="button" name="center" value="center">
+          <input type="button" name="centroid" value="centroid">
+          <input type="button" name="destination" value="destination" class="working">
+          <input type="button" name="distance" value="distance" class="working">
+          <input type="button" name="envelope" value="envelope" class="working">
+          <input type="button" name="extent" value="extent" class="working">
+          <input type="button" name="line-distance" value="line-distance" class="working">
+          <input type="button" name="midpoint" value="midpoint" class="working">
+          <input type="button" name="point-on-surface" value="point-on-surface" class="working">
+          <input type="button" name="size" value="size" class="working">
+          <input type="button" name="square" value="square" class="working">
+        </div>
+        <div class="summary">
+          <div id="along" class="hidden">
+            <h3>Along</h3>
+            <p>Takes a one or more features and returns their area in square units.</p>
+            <hr>
+            <form id="along-form">
+              <label for="along-distance"><b>Distance</b>
+                <input id="along-distance" type="number" name="along-distance" placeholder="ex. 10">
+              </label><br>
+              <label for="along-unit"><b>Units</b>
+                <input type="radio" name="along-unit" value="degrees"><span>Degrees</span>
+                <input type="radio" name="along-unit" value="radians"><span>Radians</span>
+                <input type="radio" name="along-unit" value="miles"><span>Miles</span>
+                <input type="radio" name="along-unit" value="kilometers"><span>Kilometers</span>
+              </label><br>
+              <label for="along-data"><b>Layer</b>
+                <input type="file" id="along-data" name="Files[]">
+              </label><br>
+              <label for="along-name"><b>Name</b>
+                <input type="text" name="along-name" placeholder="Choose name for along">
+              </label><br>
+              <input type="button" value="along" id="along-submit" class="button-tool">
+            </form>
+          </div>
+          <div id="area" class="hidden">
+            <h3>Area</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+            <hr>
+            <input type="file" id="area-data" name="files[]"><br>
+            <input type="button" id="area-submit" name="submit" value="Submit"><br>
+            <div id="area-result" class="result"></div>
+          </div>
+          <div id="bbox-polygon" class="hidden">
+            <h3>bbox-polygon</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+            <hr>
+            <form id="bbox-form">
+              <label for="bbox-xLow"><b>xLow</b>
+                <input id="bbox-xLow" type="number" name="bbox-xLow" placeholder="ex. 0">
+              </label>
+              <label for="bbox-yLow"><b>yLow</b>
+                <input id="bbox-yLow" type="number" name="bbox-yLow" placeholder="ex. 1">
+              </label>
+              <label for="bbox-xHigh"><b>xHigh</b>
+                <input id="bbox-xHigh" type="number" name="bbox-xHigh" placeholder="ex. 10">
+              </label>
+              <label for="bbox-yHigh"><b>yHigh</b>
+                <input id="bbox-yHigh" type="number" name="bbox-yHigh" placeholder="ex. 0">
+              </label><br>
+              <label for="bbox-name"><b>Name</b>
+                <input type="text" id="bbox-name" name="bbox-name">
+              </label>
+              <input type="button" id="bbox-submit" name="submit" value="Submit">
+            </form>
+          </div>
+          <div id="bearing" class="hidden">
+            <h3>Bearing </h3>
+          </div>
+          <div id="center" class="hidden">
+            <h3>Center </h3>
+            <p>Takes a FeatureCollection and returns the absolute center point of all features.</p>
+            <hr>
+            <input type="text" id="center-name" placeholder="Center Name"><br>
+            <input type="file" id="center-data" name="files[]"><br>
+            <input type="button" id="center-submit" name="submit" value="Submit">
+          </div>
+          <div id="centroid" class="hidden"> 
+            <h3>Centroid</h3>
+            <p>Takes a Polygon and calculates the centroid using the arithmetic mean of all vertices. This lessens the effect of small islands and artifacts when calculating the centroid of a set of polygons.</p>
+            <hr>
+            <input type="text" id="centroid-name" placeholder="Centroid Name"><br>
+            <input type="file" id="centroid-data" name="files[]"><br>
+            <input type="button" id="centroid-submit" name="submit" value="Submit">
+          </div>
+          <div id="destination" class="hidden">
+            <h3>Destination </h3>
+          </div>
+          <div id="distance" class="hidden"> 
+            <h3>Distance </h3>
+          </div>
+          <div id="envelope" class="hidden"> 
+            <h3>Envelope</h3>
+          </div>
+          <div id="extent" class="hidden"> 
+            <h3>Extent </h3>
+          </div>
+          <div id="line-distance" class="hidden"> 
+            <h3>Line-Distance </h3>
+          </div>
+          <div id="midpoint" class="hidden"> 
+            <h3>Midpoint </h3>
+          </div>
+          <div id="point-on-surface" class="hidden"> 
+            <h3>Point-On-Surface </h3>
+          </div>
+          <div id="size" class="hidden"> 
+            <h3>Size </h3>
+          </div>
+          <div id="square" class="hidden"> 
+            <h3>Square </h3>
+          </div>
+        </div>
+      </div>
+      <div class="transform hidden">
+        <div class="options">
+          <input type="button" name="bezier" value="bezier">
+          <input type="button" name="buffer" value="buffer">
+          <input type="button" name="concave" value="concave">
+          <input type="button" name="convex" value="convex" class="working">
+          <input type="button" name="erase" value="erase" class="working">
+          <input type="button" name="intersect" value="intersect" class="working">
+          <input type="button" name="merge" value="merge" class="working">
+          <input type="button" name="simplify" value="simplify" class="working">
+          <input type="button" name="union" value="union" class="working">
+        </div>
+        <div class="summary">
+          <div id="bezier" class="hidden">
+            <h3>Bezier</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+            <hr>
+            <form id="bezier-form">
+              <label for="bezier-res"><b>Resolution</b>
+                <input type="number" name="bezier-res" placeholder="ex. 10000">
+              </label><br>
+              <label for="bezier-sharpness"><b>Sharpness</b>
+                <input type="number" name="buffer-length" placeholder="ex. 0.85">
+              </label><br>
+              <label for="bezier-data"><b>Line</b>
+                <input type="file" id="bezier-data" name="Files[]">
+              </label><br>
+              <label for="bezier-name"><b>Name</b>
+                <input type="text" name="bezier-name" placeholder="Choose name for bezier">
+              </label><br>
+              <input type="button" value="Bezier" id="bezier-submit" class="button-tool">
+            </form>
+          </div>
+          <div id="buffer" class="hidden">
+            <h3>Buffer</h3>
+            <p>Takes a one or more features and returns their area in square units.</p>
+            <hr>
+            <form id="buffer-form">
+              <label for="buffer-length"><b>Length</b>
+                <input id="buffer-length" type="number" name="buffer-length" placeholder="ex. 100">
+              </label><br>
+              <label for="buffer-unit"><b>Units</b>
+                <input type="radio" name="buffer-unit" value="miles"><span>Miles</span>
+                <input type="radio" name="buffer-unit" value="feet"><span>Feet</span>
+                <input type="radio" name="buffer-unit" value="kilometers"><span>Kilometers</span>
+                <input type="radio" name="buffer-unit" value="meters"><span>Meters</span>
+                <input type="radio" name="buffer-unit" value="degrees"><span>Degrees</span>
+              </label><br>
+              <label for="buffer-data"><b>Layer</b>
+                <input type="file" id="buffer-data" name="Files[]">
+              </label><br>
+              <label for="buffer-name"><b>Name</b>
+                <input type="text" name="buffer-name" placeholder="Choose name for buffer">
+              </label><br>
+              <input type="button" value="Buffer" id="buffer-submit" class="button-tool">
+            </form>
+          </div>
+          <div id="concave" class="hidden">
+            <h3>Concave</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+            <hr>
+            <form id="concave-form">
+              <label for="concave-maxEdge"><b>Max Edge</b>
+                <input id="concave-maxEdge" type="number" name="concave-maxEdge" placeholder="ex. 0.5">
+              </label><br>
+              <label for="concave-unit"><b>Units</b>
+                <input type="radio" name="concave-unit" value="miles"><span>Miles</span>
+                <input type="radio" name="concave-unit" value="kilometers"><span>Kilometers</span>
+              </label><br>
+              <label for="concave-data"><b>Layer</b>
+                <input type="file" id="concave-data" name="Files[]">
+              </label><br>
+              <label for="concave-name"><b>Name</b>
+                <input type="text" name="concave-name" id="concave-name" placeholder="Choose name for concave">
+              </label><br>
+              <input type="button" value="Concave" id="concave-submit" class="button-tool">
+            </form>
+          </div>
+          <div id="convex" class="hidden">
+            <h3>Convex </h3>
+          </div>
+          <div id="erase" class="hidden">
+            <h3>Erase </h3>
+          </div>
+          <div id="intersect" class="hidden"> 
+            <h3>Intersect </h3>
+          </div>
+          <div id="merge" class="hidden">
+            <h3>Merge </h3>
+          </div>
+          <div id="simplify" class="hidden"> 
+            <h3>Simplify </h3>
+          </div>
+          <div id="union" class="hidden"> 
+            <h3>Union</h3>
+          </div>
+        </div>
+      </div>
+      <div class="misc hidden">
+        <div class="options">
+          <input type="button" name="combine" value="combine" class="working">
+          <input type="button" name="explode" value="explode" class="working">
+          <input type="button" name="flip" value="flip" class="working">
+          <input type="button" name="kinks" value="kinks" class="working">
+          <input type="button" name="line-slice" value="line-slice" class="working">
+          <input type="button" name="point-on-line" value="point-on-line" class="working">
+        </div>
+        <div class="summary">
+          <div id="combine" class="hidden">
+            <h3>Along</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="explode" class="hidden">
+            <h3>Explode</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="flip" class="hidden">
+            <h3>Flip</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="kinks" class="hidden">
+            <h3>Kinks </h3>
+          </div>
+          <div id="line-slice" class="hidden">
+            <h3>Line-Slice </h3>
+          </div>
+          <div id="point-on-line" class="hidden"> 
+            <h3>Point-On-Line </h3>
+          </div>
+        </div>
+      </div>
+      <div class="helper hidden">
+        <div class="options">
+          <input type="button" name="featurecollection" value="featurecollection" class="working">
+          <input type="button" name="linestring" value="linestring" class="working">
+          <input type="button" name="point" value="point" class="working">
+          <input type="button" name="polygon" value="polygon" class="working">
+        </div>
+        <div class="summary">
+          <div id="featurecollection" class="hidden">
+            <h3>Feature Collection</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="linestring" class="hidden">
+            <h3>Linestring</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="point" class="hidden">
+            <h3>Point</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="polygon" class="hidden">
+            <h3>Polygon </h3>
+          </div>
+        </div>
+      </div>
+      <div class="data hidden">
+        <div class="options">
+          <input type="button" name="load" value="load">
+          <input type="button" name="save" value="save">
+          <input type="button" name="filter" value="filter" class="working">
+          <input type="button" name="random" value="random" class="working">
+          <input type="button" name="remove" value="remove" class="working">
+          <input type="button" name="sample" value="sample" class="working">
+        </div>
+        <div class="summary">
+          <div id="load" class="hidden">
+            <h3>Load</h3>
+            <p>Loads geojson data to map.</p>
+            <hr>
+            <form>
+              <input type="text" id="load-name" placeholder="Layer Name"><br>
+              <input type="file" id="load-data" name="files[]"><br>
+              <input type="button" id="load-submit" name="submit" value="Submit">
+            </form>
+          </div>
+          <div id="save" class="hidden">
+            <h3>Save</h3>
+            <p>Save data generated in Riverbat </p>
+            <hr>
+            <form id="save-form">
+              <select id="save-list"></select><br>
+              <input type="button" id="save-input" value="save">
+            </form>
+          </div>
+          <div id="filter" class="hidden">
+            <h3>Filter</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="random" class="hidden">
+            <h3>Random</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="remove" class="hidden">
+            <h3>Remove</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="sample" class="hidden">
+            <h3>Sample </h3>
+          </div>
+        </div>
+      </div>
+      <div class="interpolate hidden">
+        <div class="options">
+          <input type="button" name="hex-grid" value="hex-grid" class="working">
+          <input type="button" name="isolines" value="isolines" class="working">
+          <input type="button" name="planepoint" value="planepoint" class="working">
+          <input type="button" name="point-grid" value="point-grid" class="working">
+          <input type="button" name="square-grid" value="square-grid" class="working">
+          <input type="button" name="tin" value="tin" class="working">
+          <input type="button" name="triangle-grid" value="triangle-grid" class="working">
+        </div>
+        <div class="summary">
+          <div id="hex-grid" class="hidden">
+            <h3>Hex Grid</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="isolines" class="hidden">
+            <h3>Isolines</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="planepoint" class="hidden">
+            <h3>Planepoint</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="point-grid" class="hidden">
+            <h3>Point Grid </h3>
+          </div>
+          <div id="square-grid" class="hidden">
+            <h3>Square Grid </h3>
+          </div>
+          <div id="tin" class="hidden"> 
+            <h3>Tin </h3>
+          </div>
+          <div id="triangle-grid" class="hidden">
+            <h3>Triangle Grid </h3>
+          </div>
+        </div>
+      </div>
+      <div class="join hidden">
+        <div class="options">
+          <input type="button" name="inside" value="inside" class="working">
+          <input type="button" name="tag" value="tag" class="working">
+          <input type="button" name="within" value="within" class="working">
+        </div>
+        <div class="summary">
+          <div id="inside" class="hidden">
+            <h3>Inside</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="tag" class="hidden">
+            <h3>Tag</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="within" class="hidden">
+            <h3>Within</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+        </div>
+      </div>
+      <div class="classify hidden">
+        <div class="options">
+          <input type="button" name="jenks" value="jenks" class="working">
+          <input type="button" name="nearest" value="nearest" class="working">
+          <input type="button" name="quantile" value="quantile" class="working">
+          <input type="button" name="reclass" value="reclass" class="working">
+        </div>
+        <div class="summary">
+          <div id="jenks" class="hidden">
+            <h3>Jenks</h3>
+            <p>Takes a line and returns a point at a specified distance along the line.</p>
+          </div>
+          <div id="nearest" class="hidden">
+            <h3>Nearest</h3>
+            <p>Takes a one or more features and returns their area in square meters.</p>
+          </div>
+          <div id="quantile" class="hidden">
+            <h3>Quantile</h3>
+            <p>Takes a set of points and a set of polygons and calculates the number of points that fall within the set of polygons.</p>
+          </div>
+          <div id="reclass" class="hidden">
+            <h3>Reclass </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js">  </script>
+    <!--TURF-->
+    <script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+    <!--FULLSCREEN-->
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js">   </script>
+    <!--DRAW -->
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js"></script>
+    <!--GEOCODER -->
+    <script src="js/Control.Geocoder.js"></script>
+    <!--RIVERBAT-->
+    <script src="bat.js"> </script>
+  </div>
+</body>

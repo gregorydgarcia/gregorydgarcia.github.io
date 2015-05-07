@@ -1,0 +1,165 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700)
+
+$toolBackground: #ccffcc
+$toolBorder: #00b200
+
+body
+  margin: 0px
+
+#map 
+  width: 100%
+  height: 100vh
+
+.tools
+  font-family: 'Open Sans', sans-serif
+  box-sizing: border-box 
+  background-color: $toolBackground
+  border: 1px solid $toolBorder
+  width: 100%
+  min-width: 960px
+  height: 300px
+  position: absolute
+  bottom: 0px
+  left: 0px
+  box-shadow: 1px -2px 3px #ccc
+  transition: 1s
+
+
+  .title
+    text-transform: uppercase
+    color: #2c475c
+    font-weight: 700
+    text-shadow: 1px 1px 1px #ccc
+    display: block
+    position: absolute
+    background-color: $toolBackground
+    text-align: center
+    top: -27px
+    left: 80px
+    padding: 5px 10px
+    padding-bottom: 0px
+    border-radius: 1px 1px 0px 0px
+    border: 1px solid $toolBorder
+    border-bottom: 0px
+    box-shadow: 2px -2px 3px #ccc
+    
+    
+  ul
+    display: block
+    margin: 0px
+    margin-left: 5px
+    padding: 0px
+    box-sizing: border-box
+    width: 100%
+    min-width: 960px
+
+    
+    
+    
+    
+    li
+      list-style-type: none
+      padding: 10px 0px
+      float: left
+      border: 1px solid $toolBorder
+      width: 95px
+      margin-top: 5px
+      margin-right: 5px
+      
+      font-size: 12px
+      text-transform: uppercase
+      text-align: center
+
+
+
+  .tool-area
+    position: absolute
+    bottom: 0px
+    left: 0px
+    right: 0px
+    height: 250px    
+    width: 100%
+    
+    hr 
+      border: 0
+      height: 1px
+      background: #333
+
+    .options
+      float: left
+      width: 215px
+      margin-left: 3px
+
+    input[type=button]
+      box-sizing: border-box
+      display: block
+      background-color: lightgreen
+      border: 1px solid green
+      width: 100px
+      padding: 5px
+      border: 1px solid $toolBorder !important
+      box-shadow: none !important
+      outline: none !important
+      float: left
+      margin: 3px
+
+      &:hover
+        background-color: green
+      &:active
+        background-color: darkgreen
+        color: #fff
+      
+    input[type="button"].selected
+      background-color: darkgreen
+      color: #fff
+      
+    .summary
+      box-sizing: border-box
+      float: left
+      padding-left: 40px
+      width: 740px
+
+      h3
+        margin: 0px
+      p 
+        margin: 0px
+    
+  .button-tool
+    float: none
+
+  .result
+    border: 1px solid black
+    display: block
+    margin-top: 20px
+    width: 300px
+    height: 100px
+
+.hidden
+  display: none !important
+
+.shrunk
+  bottom: -300px
+      
+        
+        
+.selected
+  background-color: green
+  color: #fff   
+
+
+      
+.working
+  background-color: grey !important
+  color: #darkgrey
+  &:hover
+    background-color: grey
+    color: #darkgrey
+    
+    
+
+
+
+
+
+
+

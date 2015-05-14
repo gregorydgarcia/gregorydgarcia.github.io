@@ -20,97 +20,50 @@ html(class="no-js" lang="en")
         //[endif]
 
 
-        header 
-            h1 Greg Garcia
-            h4 Front-End Web Developer
+        .wrapper
+            header
+                .title
+                    h1 Gregory Garcia
+                    h3 Front-End Web Developer
 
-            nav
-                ul  
-                    li 
-                        a(href="#projects") Projects
-                    li 
-                        a(href="#links") Blog
-                    li 
-                        a(href="#contact") Contact
-
-           
-        
-            section(id="about")
-                .bio
-                    h2 About Me
-                    p Based out of Austin, Texas I specialize in javascript driven websites. This includes data visualization, web cartgography, and web applications. 
-                    p My background is in marketing and GIS so I am constantly thinking on how we can use the web to solve business problems spatially.
-                .skills
-                    h2 Skills
-                    p I spend most of my time in Javascript and SASS. for data sanitization and data scrapping. Libraries I use regularly are Leaflet, JQuery, Kartography, and I am currently experiementing with Angular.
-                    p Most importantly iportance of providing timely and stable solutions. I have experience working in an agile system; individually and with teams.  
-                .cred
-                    h2 Experience
-                    p I am a graduate of University of Texas's School of Advertising. While at UT I was a productions intern for an advertising firm.  
-                    p Recently I have worked with a Crisis PR firm handling their digital response - website, social media, emails - for clients ranging from law firms to city governments.
+            .sections
+                .projects
+                    .project 
+                        a(href="/beerpoints/#"): img(src="img/beerpoints.png" alt="Beer Points")
+                        h4 Beer Points
+                        p Leaflet/Turf Vis of data scrapped from Beer Advocate
 
 
-        section(id="projects")
-                h2 Projects
-                .project
-                    a(href="#")
-                        h3 RiverBatJS
-                        p ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in faucibus urna, at ultricies ex.
-                        img(src="img/riverbat.png")
+                    .project 
+                        a(href="/riverbat-b1/"): img(src="img/riverbat.png" alt="RiverBatJS")
+                        h4 RiverBat JS
+                        p Clientside lightweight GIS built with TurfJS and JQuery
 
-                .project
-                    h3 Coming Soon
-                    p Coming Soon
-                    img(src="img/coming.png")
-                        
-                .project
-                    h3 Coming Soon
-                    p Coming Soon
-                    img(src="img/coming.png")
+                    .project 
+                        img(src="" alt="Coming Soon")
 
-                .project
-                    h3 Coming Soon
-                    p Coming Soon
-                    img(src="img/coming.png")
+                    .project 
+                        img(src="" alt="Coming Soon")
 
-        section(id="links")
-            .blog
-                h2 Blog
-                ul
-                    li 
-                        a(href="blog/#") Coming Soon
-                    li 
-                        a(href="blog/#")
-                    li 
-                        a(href="blog/#")
-                    li 
-                        a(href="blog/#")
+                    .project 
+                        img(src="" alt="Coming Soon")
 
-            .links
-                h2 Links
-                ul
-                    li 
-                        a(href="blog/#") Coming Soon
-                    li 
-                        a(href="blog/#")
-                    li 
-                        a(href="blog/#")
-                    li 
-                        a(href="blog/#")
+                    .project 
+                        img(src="" alt="Coming Soon")
+                            
+                .blog.hidden
 
+                .contact.hidden
 
+                .about.hidden 
 
-        section(id="contact")
-            form(class="contact-form")
-              .input-group
-                input(type="text")
-                label Full Name
-                
-              .input-group
-                input(type="email")
-                label Email Address
-                
-              input(type="submit")
+            nav 
+                ul 
+                    li.selected: a(href="#") Projects
+                    li: a(href="#") Blog
+                    li: a(href="#") Contact
+                    li: a(href="#") About
+
 
         script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
         script window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')

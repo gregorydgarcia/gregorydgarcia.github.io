@@ -16,85 +16,41 @@
     -->
     <!--[endif]-->
     
-    <header> 
-      <h1>Greg Garcia</h1>
-      <h4>Front-End Web Developer</h4>
-      <nav>
+    <div class="wrapper">
+      <header>
+        <div class="title">
+          <h1>Gregory Garcia</h1>
+          <h3>Front-End Web Developer</h3>
+        </div>
+      </header>
+      <div class="sections">
+        <div class="projects">
+          <div class="project"> <a href="/beerpoints/#"><img src="img/beerpoints.png" alt="Beer Points"></a>
+            <h4>Beer Points</h4>
+            <p>Leaflet/Turf Vis of data scrapped from Beer Advocate</p>
+          </div>
+          <div class="project"> <a href="/riverbat-b1/"><img src="img/riverbat.png" alt="RiverBatJS"></a>
+            <h4>RiverBat JS</h4>
+            <p>Clientside lightweight GIS built with TurfJS and JQuery</p>
+          </div>
+          <div class="project"> <img src="" alt="Coming Soon"></div>
+          <div class="project"> <img src="" alt="Coming Soon"></div>
+          <div class="project"> <img src="" alt="Coming Soon"></div>
+          <div class="project"> <img src="" alt="Coming Soon"></div>
+        </div>
+        <div class="blog hidden"></div>
+        <div class="contact hidden"></div>
+        <div class="about hidden"> </div>
+      </div>
+      <nav> 
         <ul> 
-          <li> <a href="#projects">Projects</a></li>
-          <li> <a href="#links">Blog</a></li>
-          <li> <a href="#contact">Contact</a></li>
+          <li class="selected"><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
         </ul>
       </nav>
-      <section id="about">
-        <div class="bio">
-          <h2>About Me</h2>
-          <p>Based out of Austin, Texas I specialize in javascript driven websites. This includes data visualization, web cartgography, and web applications. </p>
-          <p>My background is in marketing and GIS so I am constantly thinking on how we can use the web to solve business problems spatially.</p>
-        </div>
-        <div class="skills">
-          <h2>Skills</h2>
-          <p>I spend most of my time in Javascript and SASS. for data sanitization and data scrapping. Libraries I use regularly are Leaflet, JQuery, Kartography, and I am currently experiementing with Angular.</p>
-          <p>Most importantly iportance of providing timely and stable solutions. I have experience working in an agile system; individually and with teams.  </p>
-        </div>
-        <div class="cred">
-          <h2>Experience</h2>
-          <p>I am a graduate of University of Texas's School of Advertising. While at UT I was a productions intern for an advertising firm.  </p>
-          <p>Recently I have worked with a Crisis PR firm handling their digital response - website, social media, emails - for clients ranging from law firms to city governments.</p>
-        </div>
-      </section>
-    </header>
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project"><a href="#">
-          <h3>RiverBatJS</h3>
-          <p>ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in faucibus urna, at ultricies ex.</p><img src="img/riverbat.png"></a></div>
-      <div class="project">
-        <h3>Coming Soon</h3>
-        <p>Coming Soon</p><img src="img/coming.png">
-      </div>
-      <div class="project">
-        <h3>Coming Soon</h3>
-        <p>Coming Soon</p><img src="img/coming.png">
-      </div>
-      <div class="project">
-        <h3>Coming Soon</h3>
-        <p>Coming Soon</p><img src="img/coming.png">
-      </div>
-    </section>
-    <section id="links">
-      <div class="blog">
-        <h2>Blog</h2>
-        <ul>
-          <li> <a href="blog/#">Coming Soon</a></li>
-          <li> <a href="blog/#"></a></li>
-          <li> <a href="blog/#"></a></li>
-          <li> <a href="blog/#"></a></li>
-        </ul>
-      </div>
-      <div class="links">
-        <h2>Links</h2>
-        <ul>
-          <li> <a href="blog/#">Coming Soon</a></li>
-          <li> <a href="blog/#"></a></li>
-          <li> <a href="blog/#"></a></li>
-          <li> <a href="blog/#"></a></li>
-        </ul>
-      </div>
-    </section>
-    <section id="contact">
-      <form class="contact-form">
-        <div class="input-group">
-          <input type="text">
-          <label>Full Name</label>
-        </div>
-        <div class="input-group">
-          <input type="email">
-          <label>Email Address</label>
-        </div>
-        <input type="submit">
-      </form>
-    </section>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/site.js"></script>

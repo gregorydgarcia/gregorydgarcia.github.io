@@ -8,6 +8,9 @@ html(class="no-js" lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1")
 
         link(rel="apple-touch-icon" href="apple-touch-icon.png")
+        link(rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css")
+
+        link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
 
         link(rel="stylesheet" href="css/normalize.css")
         link(rel="stylesheet" href="css/style.css")
@@ -21,55 +24,175 @@ html(class="no-js" lang="en")
 
 
         .wrapper
-            header
-                .title
+            header.clear
+                #title.brand
                     h1 Gregory Garcia
                     h3 Front-End Web Developer
 
-            .sections
-                .projects
-                    .project 
-                        a(href="/beerpoints/#" target="_blank"): img(src="img/beerpoints.png" alt="Beer Points")
-                        h4 Beer Points
-                        p Leaflet/Turf Vis of data scrapped from Beer Advocate
+             
+                nav
+                    a(href="#about").brand About
+                    a(href="#projects").brand Projects
+                    a(href="#contact").brand Contact 
+
+            main
+                #about.media-box
+                    .content 
+                        .blurb
+                            h1 "We can make it on the web"
+                            p I live in #[span Austin, Texas] because there is plenty of sunlight and breakfast tacos. I am working towards becoming a reasonably competent #[span front-end web developer]. I went to the #[span University of Texas of Austin] where I majored in #[span Advertising]. Afterwards, I joined the fantastic #[span Geographic Information Systems] program at Austin Community College. Over these cushy years as a student I have developed a love for the web and I want to help push it forward.
+
+                            p My favorite libraries are #[span JQuery], #[span Leaflet], #[span D3], #[span Angular], and #[span Bootstrap]. #[span Jade] and #[span Sass] handle my preprocessing. My projects are hosted on #[span Github] (along with this site).  I let Codekit manage my dependencies and build procedures. I have experience working with #[span Object Oriented] and #[span Functional Javascript]. I keep my code dry, my namespaces clean, and my bandwidth cheap. I love working with others and I know how to work agilely. I live and die by my linter.
+
+                            p Most importantly, I respect the client's resources and my teams sanity.  I want to write code that exceeds business expectations. Code should be #[span standards compliant and maintainable]. I believe that if you plan for the edge cases the middle will take care of itself.  I want to get better at what I already know just as much as I enjoy learning new strategies and #[span I can’t wait to get to work].
 
 
-                    .project 
-                        a(href="/riverbat/" target="_blank"): img(src="img/riverbat.png" alt="RiverBatJS")
-                        h4 RiverBat JS
-                        p Clientside lightweight GIS built with TurfJS and JQuery
+                        .social
+                            a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-twitter")  
+                            a(href="https://www.pinterest.com/gregorydgarcia/boards/" target="_blank"): i(class="fa fa-pinterest")  
+                            a(href="http://gregorydgarcia.tumblr.com" target="_blank"): i(class="fa fa-tumblr") 
+                            a(href="https://www.linkedin.com/in/gregorydgarcia" target="_blank"): i(class="fa fa-linkedin") 
+                            a(href="https://github.com/gregorydgarcia" target="_blank"): i(class="fa fa-github")   
+                            a(href="http://codepen.io/gregorydgarcia/" target="_blank"): i(class="fa fa-codepen")  
+                            a(href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"): i(class="fa fa-stack-overflow")  
+                            a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")   
 
-                    .project 
-                        a(href="#" target="_blank"): img(src="" alt="Coming Soon")
 
-                    .project 
-                        a(href="#" target="_blank"): img(src="" alt="Coming Soon")
 
-                    .project 
-                        a(href="#" target="_blank"): img(src="" alt="Coming Soon")
 
-                    .project 
-                        a(href="#" target="_blank"): img(src="" alt="Coming Soon")
-                            
-                .blog.hidden
+                    .media
+                        img(src="img/greg.png" alt="Picture of Greg Garcia").hero
 
-                .contact.hidden
 
-                .about.hidden 
-                    p #[span Lorem ipsum dolor sit amet, consectetur adipiscing elit.] Sed non nibh magna. Morbi convallis magna in dui gravida, in scelerisque erat dictum. Quisque vitae dolor eget erat fringilla malesuada. Aenean est mi, viverra ut erat ut, laoreet aliquam erat. Donec et congue lectus. Nulla ullamcorper vehicula nulla vel lacinia. 
-                    p Aenean quis pellentesque diam. Morbi porttitor est ut lectus volutpat, nec suscipit sem sodales. Donec nec varius felis. Nullam lacinia aliquet magna, in lobortis mi facilisis ac. Nam nec ante ligula. Fusce laoreet arcu nisl, et maximus erat lacinia in. Maecenas pulvinar libero nec feugiat venenatis. Aliquam quis feugiat lorem
-                    img(src="img/greg.jpg" alt="Picture of Greg Garcia")
+                #projects 
+                    .project.media-box.flip
+                        .content 
+                            .blurb
+                                h1 RiverBatJS (Beta)
+                                p RiverBat is a #[span Proof-of-concept] web application that leverages the tools provided through #[span MapBox] to build a 100% in browser Geographic Information System. Visualization is handled with Mapbox's #[span mapbox.js] - an extended version of the fantastic open source mapping library #[span Leaflet]. Geoprocessing is handled by #[span TurfJS] - a (at times) client side spatial processing library also provided by Mapbox. For intactivity I used  #[span JQuery] and the geodata management is crudely manipulated in a singleton until it is offloaded into the Leaflet object. 
 
-            nav 
-                ul 
-                    li.selected: a(href="#") Projects
-                    li: a(href="#") Blog
-                    li: a(href="#") Contact
-                    li: a(href="#") About
+                                p The goal of this project was to demonstrate that an affordable (see: free) GIS solution could be widely distributed through a browser. The app is simple enough to allow for people around the world to answer basic spatial questions and share spatial data. 
+
+                            .social
+                                a(href="http://github.com/gregorydgarcia/riverbatjs" target="_blank"): i(class="fa fa-github")  
+                                a(href="http://greg.js.com/projects/riverbat" target="_blank"): i(class="fa fa-picture-o")  
+                                //a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")   
+
+
+                        .media
+                            a(href="/projects/riverbat"): img(src="img/riverbat.png" alt="River Bat")
+
+                    .project.media-box
+                        .content 
+                            .blurb
+                                h1 Beer Points 
+                                p Beer Points is a fun #[span data visualization] of the top 100 beers of five common american styles as voted on by the Beer Advocate community.
+
+                                p First I #[span scrapped] the beeradvocate site using #[span python] then converted the results into a #[span geojson object]. A few #[span leaflet] plugins latter and we had a pretty snazzy map. 
+
+                                p Instead of hardcoding in the density by state, the values are #[span calculated on the fly using TurfJS]. I think spatially responsive websites will play a big part in the future.  
+
+                            .social
+                                a(href="http://github.com/gregorydgarcia/beerpoints" target="_blank"): i(class="fa fa-github")  
+                                a(href="http://greg.js.com/projects/beerpoints" target="_blank"): i(class="fa fa-picture-o")  
+                                //a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")  
+                        .media
+                            a(href="#"): img(src="img/beerpoints.png" alt="River Bat")
+
+                    .project.media-box.flip
+                        .coming-soon
+                            #[.soon-text Coming Soon]
+                        .content 
+                            .blurb
+                                h1 GitNotes (Beta)
+                                p As developers we love #[span version control] tools.  #[span Github] has been a foundation for sharing ideas that both help the developer control their workflow and encourage community input.
+
+                                p #[span Why a tool as great as Github only serve people that can code?]
+
+                                p #[span GitNotes] is a callaborative project with local Austin writers to attempt to abstract out the concepts of version control; such as #[span branching, pull requests, and commits]. This site is built using #[span JQuery's .ajax() method] and the #[span Github API v3].
+
+                            .social
+                                //- a(href="http://codepen.io/gregorydgarcia/" target="_blank"): i(class="fa fa-codepen")  
+                                //- a(href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"): i(class="fa fa-stack-overflow")  
+                                //- a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")   
+                        .media
+                            a(href="#"): img(src="img/coming-soon.png" alt="GitShopper")
+
+                    .project.media-box
+                        .coming-soon
+                            #[.soon-text Coming Soon]
+                        .content 
+                            .blurb
+                                h1 WizzyMap 
+                                p WizzyMap is an #[span angular driven] Wysiwyg generator to create maps of ranked points. 
+
+                                p One of the most exciting things about web development is providing tools for those with specialize domain knowledge so they can express their work. Not everyone can code but  everyone can benefit for technology.
+
+                            .social
+                                //- a(href="http://codepen.io/gregorydgarcia/" target="_blank"): i(class="fa fa-codepen")  
+                                //- a(href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"): i(class="fa fa-stack-overflow")  
+                                //- a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")   
+                        .media
+                            a(href="#"): img(src="img/coming-soon.png" alt="WizzyMap")
+
+                #contact.media-box
+                    .content 
+                        h1 Lets Talk
+                        h3 Feel free to reach out to me through social media or the contact form bellow. I am available for work.
+
+                        form(action="http://formspree.io/gregorydgarcia@gmail.com" method="POST").blurb 
+                            label(for="name") Name
+                            input(type="text" name="subject")
+                            label(for="subject") Subject
+                            input(type="text" name="name")
+                            label(for="name") Your Email
+                            input(type="email" name="_replyto")
+                            label(for="message") Message
+                            textarea(name="message")
+                            input(type="submit" value="Send")
+
+
+                        .social 
+                            a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-twitter")  
+                            a(href="https://www.pinterest.com/gregorydgarcia/boards/" target="_blank"): i(class="fa fa-pinterest")  
+                            a(href="http://gregorydgarcia.tumblr.com" target="_blank"): i(class="fa fa-tumblr") 
+                            a(href="https://www.linkedin.com/in/gregorydgarcia" target="_blank"): i(class="fa fa-linkedin") 
+                            a(href="https://github.com/gregorydgarcia" target="_blank"): i(class="fa fa-github")   
+                            a(href="http://codepen.io/gregorydgarcia/" target="_blank"): i(class="fa fa-codepen")  
+                            a(href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"): i(class="fa fa-stack-overflow")  
+                            a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")
+                    .media 
+
+                footer 
+
+
+
+
+
+
+
+
 
 
         script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
         script window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+        script(src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js")
+        script.
+            var L = L;
+            var MAP = {
+              map: L.map('map', {
+                center: [40, -98],
+                zoom: 4,
+                maxZoom: 7
+              }),
+              tiles: new L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png')
+            };
+
+            MAP.tiles.addTo(MAP.map);
+
+            L.marker([30.28, -97.74]).addTo(MAP.map)
+                .bindPopup('Contact Info')
+                .openPopup();
         script(src="js/site.js")
         script.
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -77,4 +200,5 @@ html(class="no-js" lang="en")
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+            ga('create','UA-63814323-1','auto');ga('send','pageview');
+

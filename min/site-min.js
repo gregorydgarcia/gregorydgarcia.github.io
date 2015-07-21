@@ -1,1 +1,0 @@
-var L=L,MAP={map:L.map("map",{center:[40,-98],zoom:8}),tiles:new L.tileLayer("http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png")};MAP.tiles.addTo(MAP.map),L.marker([30.28,-97.74]).addTo(MAP.map).bindPopup("Contact Info").openPopup();

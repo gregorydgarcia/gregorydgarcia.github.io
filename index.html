@@ -1,154 +1,62 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Gregory Garcia</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-  </head>
-  <body>
-    <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    -->
-    <!--[endif]-->
-    
-    <div class="wrapper">
-      <header class="clear">
-        <div id="title" class="brand">
-          <h1>Gregory Garcia</h1>
-          <h3>Front-End Web Developer</h3>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Fugaz+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="container">
+            <h1>Gregory Garcia</h1>
+
+            <h3><a href="http://bazaarvoice.com">BV</a>, Tacos, Sexy Code</h3>
+
+            <div class="links">
+                <ul>
+                    <a href="https://www.facebook.com/gregory.garcia.5030"><li><i class="fa fa-facebook"></i></li></a>
+                    <a href="https://twitter.com/gregorydgarcia"><li><i class="fa fa-twitter"></i></li></a>
+                    <a href="https://www.linkedin.com/in/gregorydgarcia"><li><i class="fa fa-linkedin"></i></li></a>
+                    <a href="https://github.com/gregorydgarcia"><li><i class="fa fa-github"></i></li></a>
+                    <a href="http://codepen.io/gregorydgarcia/"><li><i class="fa fa-codepen"></i></li></a>
+                    <a href="http://stackoverflow.com/users/1989490/gregorydgarcia"><li><i class="fa fa-stack-overflow"></i></li></a>
+                    <a href="http://gregorydgarcia.tumblr.com"><li><i class="fa fa-tumblr"></i></li></a>
+                    <a href="https://www.pinterest.com/gregorydgarcia/boards/"><li><i class="fa fa-pinterest"></i></li></a>
+                </ul>
+            </div>
+
+            <div class="note">
+                <p>More coming eventually. <br /> For now check out my socials for cool stuff with JS</p>
+            </div>
+
         </div>
-        <nav><a href="#about" class="brand">About</a><a href="#projects" class="brand">Projects</a><a href="#contact" class="brand">Contact </a></nav>
-      </header>
-      <main>
-        <div id="about" class="media-box">
-          <div class="content"> 
-            <div class="blurb">
-              <h1>"Sunlight, Tacos, and Javascript" </h1>
-              <p>These are the reasons I live in  <span>Austin, Texas</span> where I’m working on becoming a reasonably competent web developer.  I’m an alum of the <span>University of Texas</span> where I studied <span>Advertising</span>. After graduating I joined the fantastic <span>Geographic Information Systems</span> program at Austin Community College.  Over those cushy years as a student, I learned to love the web and I am dedicated to pushing it forward.  My favorite libraries are <span>JQuery, Leaflet, D3, Angular, and Bootstrap#</span>.  My preprocessing is handled by <span>Jade</span> and <span>Sass</span> and I let Codekit manage my dependencies and build procedures.  I also have experience working with <span>Object Oriented</span> and <span>Functional Javascript</span>.  I live and die by my Linter. </p>
-              <p>At night I dream of keeping my <span>code dry</span>, my <span>namespaces clean</span>, and my <span>bandwidth cheap</span>.  I love collaborating with others to create excellent, quality products.  Always looking to roll-up my sleeves and dig into big projects, getting my hands dirty in the digital world. But most importantly, I <span>respect the client’s resources</span> and my <span>team’s sanity</span>.  I want to write code that exceeds expectations and I believe that code should be <span>Standards Compliant</span> and <span>Maintainable</span>.  Caring for the big picture by handling the small details.  And improving what I already know is just as important as learning new skills.  Let’s Get to Work!    </p>
-            </div>
-            <div class="social"><a href="https://twitter.com/gregorydgarcia" target="_blank"><i class="fa fa-twitter"> </i></a><a href="https://www.pinterest.com/gregorydgarcia/boards/" target="_blank"><i class="fa fa-pinterest"> </i></a><a href="http://gregorydgarcia.tumblr.com" target="_blank"><i class="fa fa-tumblr"> </i></a><a href="https://www.linkedin.com/in/gregorydgarcia" target="_blank"><i class="fa fa-linkedin"> </i></a><a href="https://github.com/gregorydgarcia" target="_blank"><i class="fa fa-github">  </i></a><a href="http://codepen.io/gregorydgarcia/" target="_blank"><i class="fa fa-codepen"> </i></a><a href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"><i class="fa fa-stack-overflow"> </i></a><a href="/docs/0615_Greg_Garcia_Resume.pdf" target="_blank"><i class="fa fa-file-text-o">  </i></a></div>
-          </div>
-          <div class="media"><img src="img/greg.png" alt="Picture of Greg Garcia" class="hero"></div>
-        </div>
-        <div id="projects"> 
-          <div class="project media-box flip">
-            <div class="content"> 
-              <div class="blurb">
-                <h1>RiverBatJS (Beta)</h1>
-                <p>RiverBat is a <span>Proof-of-concept</span> web application that leverages the tools provided through <span>MapBox</span> to build a 100% in browser Geographic Information System. Visualization is handled with Mapbox's <span>mapbox.js</span> - an extended version of the fantastic open source mapping library <span>Leaflet</span>. Geoprocessing is handled by <span>TurfJS</span> - a (at times) client side spatial processing library also provided by Mapbox. For intactivity I used  <span>JQuery</span> and the geodata management is crudely manipulated in a singleton until it is offloaded into the Leaflet object. </p>
-                <p>The goal of this project was to demonstrate that an affordable (see: free) GIS solution could be widely distributed through a browser. The app is simple enough to allow for people around the world to answer basic spatial questions and share spatial data. </p>
-              </div>
-              <div class="social"><a href="http://github.com/gregorydgarcia/riverbatjs" target="_blank"><i class="fa fa-github"> </i></a><a href="http://greg.js.com/projects/riverbat" target="_blank"><i class="fa fa-picture-o"> </i></a>
-                <!--a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")   -->
-                
-              </div>
-            </div>
-            <div class="media"><a href="/projects/riverbat"><img src="img/riverbat.png" alt="River Bat"></a></div>
-          </div>
-          <div class="project media-box">
-            <div class="content"> 
-              <div class="blurb">
-                <h1>Beer Points </h1>
-                <p>Beer Points is a fun <span>data visualization</span> of the top 100 beers of five common american styles as voted on by the Beer Advocate community.</p>
-                <p>First I <span>scrapped</span> the beeradvocate site using <span>python</span> then converted the results into a <span>geojson object</span>. A few <span>leaflet</span> plugins latter and we had a pretty snazzy map. </p>
-                <p>Instead of hardcoding in the density by state, the values are <span>calculated on the fly using TurfJS</span>. I think spatially responsive websites will play a big part in the future.  </p>
-              </div>
-              <div class="social"><a href="http://github.com/gregorydgarcia/beerpoints" target="_blank"><i class="fa fa-github"> </i></a><a href="http://greg.js.com/projects/beerpoints" target="_blank"><i class="fa fa-picture-o"> </i></a>
-                <!--a(href="https://twitter.com/gregorydgarcia" target="_blank"): i(class="fa fa-file-text-o")  -->
-              </div>
-            </div>
-            <div class="media"><a href="#"><img src="img/beerpoints.png" alt="River Bat"></a></div>
-          </div>
-          <div class="project media-box flip">
-            <div class="coming-soon"> 
-              <div class="soon-text">Coming Soon</div>
-            </div>
-            <div class="content"> 
-              <div class="blurb">
-                <h1>GitNotes (Beta)</h1>
-                <p>As developers we love <span>version control</span> tools.  <span>Github</span> has been a foundation for sharing ideas that both help the developer control their workflow and encourage community input.</p>
-                <p>Why does a tool as great as Github only serve people that can code?</p>
-                <p>GitNotes is a callaborative project with local Austin writers to attempt to abstract out the concepts of version control; such as  branching, pull requests, and commits. This site is built using  JQuery's .ajax() method and the  Github API v3.</p>
-              </div>
-              <div class="social">
-              </div>
-            </div>
-            <div class="media"><a href="#"><img src="img/coming-soon.png" alt="GitShopper"></a></div>
-          </div>
-          <div class="project media-box">
-            <div class="coming-soon">
-              <div class="soon-text">Coming Soon</div>
-            </div>
-            <div class="content"> 
-              <div class="blurb">
-                <h1>WizzyMap </h1>
-                <p>WizzyMap is an <span>angular driven</span> Wysiwyg generator to create maps of ranked points. </p>
-                <p>One of the most exciting things about web development is providing tools for those with specialize domain knowledge so they can express their work. Not everyone can code but  everyone can benefit for technology.</p>
-              </div>
-              <div class="social">
-              </div>
-            </div>
-            <div class="media"><a href="#"><img src="img/coming-soon.png" alt="WizzyMap"></a></div>
-          </div>
-        </div>
-        <div id="contact" class="media-box">
-          <div class="content"> 
-            <h1>Lets Talk</h1>
-            <h3>Feel free to reach out to me through social media or the contact form bellow. I am available for work.</h3>
-            <form action="http://formspree.io/gregorydgarcia@gmail.com" method="POST" class="blurb"> 
-              <label for="name">Name</label>
-              <input type="text" name="subject">
-              <label for="subject">Subject</label>
-              <input type="text" name="name">
-              <label for="name">Your Email</label>
-              <input type="email" name="_replyto">
-              <label for="message">Message</label>
-              <textarea name="message"></textarea>
-              <input type="submit" value="Send">
-            </form>
-            <div class="social"> <a href="https://twitter.com/gregorydgarcia" target="_blank"><i class="fa fa-twitter"> </i></a><a href="https://www.pinterest.com/gregorydgarcia/boards/" target="_blank"><i class="fa fa-pinterest"> </i></a><a href="http://gregorydgarcia.tumblr.com" target="_blank"><i class="fa fa-tumblr"> </i></a><a href="https://www.linkedin.com/in/gregorydgarcia" target="_blank"><i class="fa fa-linkedin"> </i></a><a href="https://github.com/gregorydgarcia" target="_blank"><i class="fa fa-github">  </i></a><a href="http://codepen.io/gregorydgarcia/" target="_blank"><i class="fa fa-codepen"> </i></a><a href="http://stackoverflow.com/users/1989490/gregorydgarcia" target="_blank"><i class="fa fa-stack-overflow"> </i></a><a href="https://twitter.com/gregorydgarcia" target="_blank"><i class="fa fa-file-text-o"></i></a></div>
-          </div>
-          <div class="media"> </div>
-        </div>
-        <footer> </footer>
-      </main>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script>
-      var L = L;
-      var MAP = {
-        map: L.map('map', {
-          center: [40, -98],
-          zoom: 4,
-          maxZoom: 7
-        }),
-        tiles: new L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png')
-      };
-      
-      MAP.tiles.addTo(MAP.map);
-      
-      L.marker([30.28, -97.74]).addTo(MAP.map)
-          .bindPopup('Contact Info')
-          .openPopup();
-    </script>
-    <script src="js/site.js"></script>
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-63814323-1','auto');ga('send','pageview');
-    </script>
-  </body>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
 </html>

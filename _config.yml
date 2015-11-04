@@ -1,0 +1,11 @@
+# Site settings
+title: GregJS
+email: gregorydgarcia@gmail.com
+description: > # A place for me to share projects, ideas, and demos I have been working on recently.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://greg.js.org" # the base hostname & protocol for your site
+twitter_username: gregorydgarcia@gmail.com
+github_username:  gregorydgarcia@gmail.com
+
+# Build settings
+markdown: kramdown
